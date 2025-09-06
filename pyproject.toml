@@ -4,7 +4,7 @@
 name = "mf-prior-bench"
 dependencies = [
   "pyyaml",
-  "numpy<2.0",
+  "numpy>=2.0",
   "configspace>=1.0",
   "pandas",
   "more_itertools",
@@ -32,12 +32,6 @@ classifiers = [
 ]
 
 [project.optional-dependencies]
-yahpo = ["yahpo-gym==1.0.1"]
-jahs-bench = [
-  "jahs_bench==1.2.0",
-  "pandas<2.0",
-  "numpy<2.0.0"
-]
 tabular = ["pandas>2", "pyarrow"]
 pd1 = ["xgboost[scikit-learn]>=1.7"]
 taskset_tabular = ["tensorflow<=2.18.0"]
