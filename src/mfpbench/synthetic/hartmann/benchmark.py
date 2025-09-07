@@ -8,6 +8,7 @@ Along with increasing noise, that obviously makes one config harder to distingui
 another.
 Moreover, this works with any number of fidelitiy levels.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -151,7 +152,7 @@ class MFHartmannBenchmark(Benchmark[C, R, int], Generic[G, C, R]):
             else f"mfh{cls.mfh_dims}"
         )
         space = ConfigurationSpace(name=name, seed=seed)
-        space.add(
+        space.add_hyperparameters(
             [
                 UniformFloatHyperparameter(f"X_{i}", lower=0.0, upper=1.0)
                 for i in range(cls.mfh_dims)
