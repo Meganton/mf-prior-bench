@@ -84,7 +84,7 @@ def remove_hyperparameter(name: str, space: ConfigurationSpace) -> Configuration
         name=copy(space.name),
         meta=copy(space.meta),
     )
-    new_space.add(hps)
+    new_space.add_hyperparameters(hps)
 
     return new_space
 
