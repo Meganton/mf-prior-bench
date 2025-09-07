@@ -33,7 +33,7 @@ classifiers = [
 
 [project.optional-dependencies]
 tabular = ["pandas>2", "pyarrow"]
-pd1 = ["xgboost[scikit-learn]<1.6"]
+pd1 = ["xgboost[scikit-learn]>=1.7"]
 taskset_tabular = ["tensorflow<=2.18.0"]
 surrogates = ["dehb"]
 docs = [
