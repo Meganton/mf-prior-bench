@@ -13,7 +13,7 @@ class PD1lm1b_transformer_2048(PD1Benchmark):
     @classmethod
     def _create_space(cls, seed: int | None = None) -> ConfigurationSpace:
         cs = ConfigurationSpace(seed=seed)
-        cs.add(
+        cs.add_hyperparameters(
             [
                 UniformFloatHyperparameter(
                     "lr_decay_factor",

@@ -24,7 +24,7 @@ def _get_raw_taskset_space(
     optimizer: str,
 ) -> ConfigurationSpace:
     cs = ConfigurationSpace(name=name, seed=seed)
-    cs.add(
+    cs.add_hyperparameters(
         [
             UniformFloatHyperparameter(
                 "learning_rate",
@@ -35,7 +35,7 @@ def _get_raw_taskset_space(
         ],
     )
     if optimizer.split("_")[0] in ["adam4p", "adam6p", "adam8p"]:
-        cs.add(
+        cs.add_hyperparameters(
             [
                 UniformFloatHyperparameter(
                     "beta1",
@@ -58,7 +58,7 @@ def _get_raw_taskset_space(
             ],
         )
     if optimizer.split("_")[0] in ["adam6p", "adam8p"]:
-        cs.add(
+        cs.add_hyperparameters(
             [
                 UniformFloatHyperparameter(
                     "l1",
@@ -75,7 +75,7 @@ def _get_raw_taskset_space(
             ],
         )
     if optimizer.split("_")[0] in ["adam8p"]:
-        cs.add(
+        cs.add_hyperparameters(
             [
                 UniformFloatHyperparameter(
                     "linear_decay",

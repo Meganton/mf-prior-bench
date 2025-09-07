@@ -23,10 +23,10 @@ def _get_raw_pd1_space(
     name: str,
     seed: int | None = None,
     *,
-    with_constants: bool | None = None, # noqa: ARG001
+    with_constants: bool | None = None,  # noqa: ARG001
 ) -> ConfigurationSpace:
     cs = ConfigurationSpace(name=name, seed=seed)
-    cs.add(
+    cs.add_hyperparameters(
         [
             UniformFloatHyperparameter(
                 "lr_decay_factor",

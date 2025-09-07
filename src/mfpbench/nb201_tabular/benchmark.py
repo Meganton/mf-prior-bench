@@ -3,6 +3,7 @@
 * Config 9075 for ImageNet w/ 200 epochs is missing train and test loss from epoch 68
     onwards. It was the only config of all of nb201 with missing data so we drop it.
 """
+
 from __future__ import annotations
 
 from collections.abc import Mapping
@@ -29,7 +30,7 @@ def _raw_space(name: str, *, seed: int | None = None) -> ConfigurationSpace:
         "avg_pool_3x3",
     ]
     cs = ConfigurationSpace(name=name, seed=seed)
-    cs.add(
+    cs.add_hyperparameters(
         [
             CategoricalHyperparameter("edge_0_1", choices=choices.copy()),
             CategoricalHyperparameter("edge_0_2", choices=choices.copy()),
