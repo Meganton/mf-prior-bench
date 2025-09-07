@@ -65,7 +65,8 @@ def remove_hyperparameter(name: str, space: ConfigurationSpace) -> Configuration
     # Seeing as we copy objects and don't use the originals, transfering these
     # to the new objects is a bit tedious, possible but not required at this time
     # ... same goes for forbiddens
-    assert name not in space.conditional_hyperparameters, "Can't handle conditionals"
+    if hasattr(space, "conditional_hyperparameters"):
+        assert name not in space.conditional_hyperparameters, "Can't handle conditionals"
     assert not any(
         name != f.hyperparameter.name for f in space.forbidden_clauses
     ), "Can't handle forbiddens"
