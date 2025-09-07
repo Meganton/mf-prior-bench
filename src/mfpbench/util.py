@@ -54,8 +54,9 @@ def remove_hyperparameter(name: str, space: ConfigurationSpace) -> Configuration
     if name not in space:
         raise ValueError(f"{name} not in {space}")
 
-    if any(space.conditions):
-        raise NotImplementedError("We do not handle conditionals for now")
+    if hasattr(space, "conditions"):
+        if any(space.conditions):
+            raise NotImplementedError("We do not handle conditionals for now")
 
     if any(space.forbidden_clauses):
         raise NotImplementedError("We do not handle forbiddems for now")
