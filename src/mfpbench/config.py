@@ -146,8 +146,9 @@ class Config(ABC, Mapping[str, Any]):
                     )
                 # No need to do anything here
             else:
-                if not hp.legal_value(v):
-                    raise ValueError(f"Value {v} is not legal for {k}")
+                if hasattr(hp, "legal_value"):
+                    if not hp.legal_value(v):
+                        raise ValueError(f"Value {v} is not legal for {k}")
                 hp.default_value = v
 
     @classmethod
