@@ -117,7 +117,7 @@ class JAHSBenchSource(BenchmarkSetup):
 
     @override
     @classmethod
-    def download(cls, path: Path) -> None:
+    def download(cls, path: Path, workers: int = 1) -> None:
         tarpath = path / "assembled_surrogates.tar"
 
         print(f"Download {cls.url}, this might take a while.")
